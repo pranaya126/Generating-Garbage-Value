@@ -1,0 +1,12 @@
+class gar_value;
+reg [7:0] initial_value=8'hc4;
+reg [7:0] over_writting;
+function void print();
+$display("garbage value :%0h",over_writting,initial_value);
+endfunction
+endclass
+module garbage; 
+initial begin
+gar g; g=new();
+g.over_writting=8'hC3; g.initial_value=g.over_writting; g.print();
+end endmodule
